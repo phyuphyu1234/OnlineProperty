@@ -1,0 +1,32 @@
+<?php 
+$title = 'Property List';
+$this ->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title); ?></h1>
+ <p>
+    <a href="<?= $this->url('onlineproperty', ['action' => 'index']) ?>">See User</a>
+    <a href="<?= $this->url('onlineproperty', ['action' => 'login']) ?>">Change Password</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Property Name</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php 
+ 	foreach ($onlineproperty as $onlineproperty): ?>
+ 	<tr>
+
+     <td><?= $onlineproperty->name?></td>
+     <td><?= $onlineproperty->password?></td> 
+     <td><?= $onlineproperty->auth?></td>
+     <td>
+ 	 <a href="<?= $this->url('onlineproperty', ['action' => 'edit', 'id' => $onlineproperty->id]) ?>">Edit</a>
+     <a href="<?= $this->url('onlineproperty', ['action' => 'delete', 'id' => $onlineproperty->id]) ?>">Delete</a>
+     
+ 	 </td>		
+ 	</tr>
+ <?php  endforeach; ?>
+ </table>

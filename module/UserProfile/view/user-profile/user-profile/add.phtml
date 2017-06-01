@@ -1,0 +1,78 @@
+<?php 
+
+use Zend\Session\Container;
+use Zend\File\Transfer\Adapter\Http;
+
+ $session = new Container('user');
+      $id = $session->id; 
+      
+?>
+<style>
+p{
+  margin-left:920px;
+}
+</style>
+<body style="background-color:#DEF0F7;">
+<h2 style="color:#27CE53"> Add new Online Property</h2>
+		<form class="form" enctype="multipart/form-data" action="<?= $this->url('userprofile',['action' => 'add' ]) ?>" method="post">
+		
+			<label for="text" id="type">Type</label><br>
+			<select id="type" class="type" name="type_name" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+				<option value="Condo">Condo</option>
+				<option value="Apartment">Apartment</option>
+				<option value="Land">Land</option>
+				<option value="Factory">Factory</option>
+				<option value="House">House</option>
+				<option value="Office">Office</option>
+			</select>
+			<br>
+			<br>
+
+			<input type="hidden" name="user_id" value="<?php echo $id; ?>" >
+
+			<label for="text" id="price">Price</label><br>
+			<input type="text" name="price" value="" placeholder=" price" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+			<br>
+			<br>
+
+			<label for="text" id="location">Location</label><br>
+			<select id="location" class="location" name="location" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+				<option value="yangon">Yangon</option>
+				<option value="mandalay">Mandalay</option>
+			</select>
+			<br>
+			<br>
+
+			<label for="text" id="contact_phnumber">Phone No</label><br>
+			<input type="text" name="contact_phnumber" pattern="^[/0-9]+$" onkeypress="return isNumberKey(event)" value="" placeholder="phone no" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+			<br>
+			<br>
+
+			<label for="text" id="contact_address">Address</label><br>
+			<textarea name="contact_address" value="" placeholder="Address" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;"></textarea>
+			<br>
+			<br>
+
+			<label for="text" id="sale_rent">Sale & Rent</label><br>
+			<select type="text" name="sale_rent" value="" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+				<option value="sale">Sale</option>
+				<option value="rent">Rent</option>
+			</select>
+			<br>
+			<br>
+
+			<input type="file" name="photo" id="photo" value="" required></br>
+			
+			<input type="submit" name="submit"  class="btn btn-default btn-enquiry col1 submit-btn clicktrack" value="add"> 
+		</form>
+
+<script type="text/javascript">
+	function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+         return true;
+      }
+</script>
+</body>

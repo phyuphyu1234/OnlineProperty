@@ -1,0 +1,161 @@
+<head>
+    <meta charset="utf-8">
+    
+  
+    
+  <!--   icon for title bar -->
+ 
+    <!-- Custom Css -->
+    <link rel="stylesheet" type="text/css" href="../../../public/js/property-custom.css">
+    <!-- Bootstrap Dropdown menu plugin -->
+    <script type="text/javascript" src="../../../public/js/jquery.magnific-popup.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../../public/js/magnific-popup.css">  
+
+    <!-- Custom Js -->
+    <link rel="stylesheet" href="../../../public/js/property-two.css" type="text/css" />
+
+    <link rel="stylesheet" href="../../../public/js/swiper.css" type="text/css" />
+
+   </script>
+   <style>
+     .navbar-collapse, .container > .navbar-header {
+      margin-right: 0;
+      margin-left: 0;
+      padding-bottom: 50px;
+     }
+     .nav > li > a {
+      padding-top: 25px;
+     }
+
+   </style>
+   </head>
+<body> 
+
+<div class="container main-body">
+ <a href="<?= $this->url('mainpage', ['action' => 'index']) ?>" class="hidden-xs backbtn-one" type=button>Back</a>
+  <div id="property-detail-info-block" class="block">
+    <div class="block-title header-block-title" style="background:#316f31"><h3>Details</h3></div>
+      <div class="tab-box custom-tab-box">
+        <div class="property-info">
+          <div class="property-detail-gallery">
+            <div class="property-detail-tab block">
+                <div class="tab-details tab-aol">
+                    <div class="gallery-custom-container">
+                      <div class="swiper-container gallery-top">
+                          <div class="swiper-wrapper">    
+                                                          <?php $photo=$mainpage->photo; ?>
+                                                          <div class="swiper-slide image-link" href="<?= $this->basePath("img/$photo") ?>" style="cursor:pointer;background-image:url(<?= $this->basePath("img/$photo") ?>)"></div>
+                            
+                          </div>
+                          
+                          <div class="swiper-button-next swiper-button-white"></div>
+                          <div class="swiper-button-prev swiper-button-white"></div>
+                       </div>
+                    </div>
+                                     
+                          <script>
+                            
+                             var galleryTop = new Swiper('.gallery-top', {
+                                  nextButton: '.swiper-button-next',
+                                  prevButton: '.swiper-button-prev',
+                                  spaceBetween: 10,
+                                
+                                   
+                                  slideToClickedSlide: true   
+                              });
+                              var galleryThumbs = new Swiper('.gallery-thumbs', {
+                                  spaceBetween: 10,
+                                  slidesPerView: 4,
+                                  touchRatio: 0.2,
+                                  centeredSlides: false,
+                                  grabCursor : true,
+                                  
+                                  slideToClickedSlide: true
+                              });
+                              galleryTop.params.control = galleryThumbs;
+                              galleryThumbs.params.control = galleryTop;
+                          
+                          </script>
+                 </div>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div id="property-detail-list-block" class="block">
+
+          <div class="tab-box header-block-title">
+            
+            <div class="property-info">
+              <h4>Development</h4>
+
+              <div class="left-info table-responsive hidden-xs">
+                <table class="table info-table">
+                      <tbody>
+                        <?php $price=$mainpage->price; ?>
+                        <tr>
+                          <td>Property Type :</td>
+                          <td><?= $mainpage->type_name ?></td>
+                        </tr>
+                        <tr>
+                          <td>Price :</td>
+                          <td><?php  echo number_format("$price");?> </td>
+                        </tr>
+                        <tr>
+                          <td>Location :</td>
+                          <td><?= $mainpage->location ?></td>
+                        </tr>
+                                            <tr>
+                          <td>Phone :</td>
+                          <td><?= $mainpage->contact_phnumber ?></td>
+                        </tr>
+                        <tr>
+                          <td>Address :</td>
+                          <td><?= $mainpage->contact_address ?></td>
+                        </tr>
+                        <tr>
+                          <td>Sale or Rent :</td>
+                          <td> <?= $mainpage->sale_rent ?></td>
+                        </tr>
+                       
+                      </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+$(function(){
+
+  //check mouse hover on title
+        var mouseY = 0;
+        var topValue = 0;
+        window.addEventListener("mouseout",function(e){
+            mouseY = e.clientY;
+            if(mouseY<topValue) {
+                visit =  $.cookie('visited');
+              if(visit != 'yes'){
+                desktopPopUp();
+              }
+
+            }
+        },
+        false);
+});
+</script>
+
+<div>  
+  <script type="text/javascript">
+
+        $(document).ready(function(){
+                    $('.image-link').magnificPopup({
+                        type: 'image',
+                        gallery:{
+                          enabled:true
+                        }
+                    });
+          });
+    </script>   
+</body>

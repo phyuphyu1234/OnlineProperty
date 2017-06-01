@@ -1,0 +1,73 @@
+<style type="text/css">
+input {
+        color: #bd726c; 
+        width: 200px; 
+        border-radius: 5px; 
+        height: 31px;  
+        box-shadow: none;
+       border: 1px solid #b6b5b5;
+}
+</style>
+
+<body style="background-color:#DEF0F7;">
+<h1>Edit Property</h1>
+<form class="form" enctype="multipart/form-data" action="<?= $this->url('postmng', ['action' => 'edit', 'id' => $postmng->id ]) ?>" method="post">
+    <input type="hidden" name="id" value="<?= $postmng->id ?>">
+
+    <label for="text" id="type">Type:</label>
+    <br>
+	<select id="type" class="type" name="type_name" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+            <option value="<?= $postmng->type_name ?>"><?= $postmng->type_name ?></option>
+        	<option value="Condo">Condo</option>
+        	<option value="Apartment">Apartment</option>
+        	<option value="Land">Land</option>
+        	<option value="Factory">Factory</option>
+            <option value="House">House</option>
+            <option value="Office">Office</option>
+	</select>
+	</br></br>
+
+    <label for="text" id="price">Price</label> <br>
+    <input type="text" name="price" value="<?= $postmng->price ?>" placeholder="Price" required >
+    </br></br>
+
+    <label for="text" id="location">Location</label>   <br>
+    <select id="location" class="location" name="location" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+    <option value="<?= $postmng->location ?>"><?= $postmng->location ?></option>
+    <option value="yangon">Yangon</option>
+    <option value="mandalay">Mandalay</option>
+    </select>
+    </br></br>
+
+    <label for="text" id="contact_phnumber">Phone No</label> <br>
+    <input type="text" name="contact_phnumber" pattern="^[/0-9]+$" onkeypress="return isNumberKey(event)" value="<?= $postmng->contact_phnumber ?>" placeholder="Phone" required>
+    </br></br>
+
+     <label for="text" id="contact_address">Address</label> <br>
+    <input type="text" name="contact_address" value="<?= $postmng->contact_address ?>" placeholder="Address" required>
+    </br></br>
+
+    <label for="text" id="sale_rent">Sale & Rent</label> <br>
+    <select type="text" name="sale_rent" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+        <option value="<?= $postmng->sale_rent ?>"><?= $postmng->sale_rent ?></option>
+        <option value="sale">sale</option>
+        <option value="rent">rent</option>
+    </select>
+    <br><br>
+    
+    <img src="../../../public/img/<?= $postmng->photo ?>" width="140" height="150">
+    <input type="file" name="photo" id="photo" value=""><br>
+
+    <input type="submit" name="submit" value="Update">
+</form>
+<script type="text/javascript">
+    function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+         return true;
+      }
+
+</script>
+</body>

@@ -1,0 +1,74 @@
+<?php 
+use Zend\Session\Container;
+
+ $session = new Container('user');
+      $id = $session->id;
+?>
+<body style="background-color:#DEF0F7;">
+ <h1> Edit Online Property</h1>
+ <form class="form" enctype="multipart/form-data" action="<?= $this->url('userprofile',['action' => 'edit','id' => $userprofile->id ]) ?>" method="post">
+
+		<input type="hidden" name="id" value="<?= $userprofile->id ?>">
+
+		<label for="text" id="type" >Type</label><br>
+		<select id="type" class="type" name="type_name" style="color: #bd726c; width: 200px; 
+		        border- radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+			<option value="<?= $userprofile->type_name ?>"><?= $userprofile->type_name ?></option>
+			<option value="Condovalue="<?= $userprofile->type_name ?>"">Condo</option>
+			<option value="Apartment">Apartment</option>
+			<option value="Land">Land</option>
+			<option value="Factory">Factory</option>
+			<option value="House">House</option>
+			<option value="Office">Office</option>
+		</select>
+		<br>
+		<br>
+
+		<input type="hidden" name="user_id" value="<?php echo $id; ?>" >
+
+		<label>Price</label><br>
+		<input type="text" name="price" value="<?= $userprofile->price ?>" placeholder="Price" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+		<br><br>
+
+		<label>Location</label><br>
+		<select id="location" class="location" name="location" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+		    <option value="<?= $userprofile->location ?>"><?= $userprofile->location ?></option>
+		    <option value="yangon">Yangon</option>
+		    <option value="mandalay">Mandalay</option>
+		    </select>
+		<br><br>
+
+		<label>Phone Number</label><br>
+		<input type="text" name="contact_phnumber" pattern="^[/0-9]+$" onkeypress="return isNumberKey(event)" value="<?= $userprofile->contact_phnumber ?>" placeholder="Phone" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+		<br><br>
+
+		<label>Address</label><br>
+		<textarea name="contact_address" value="<?= $userprofile->contact_address ?>" placeholder="Address" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;"><?= $userprofile->contact_address ?></textarea>
+		 --><br><br>
+
+		<label>Sale or Rent</label><br>
+		<select id="sale_rent" class="sale_rent" name="sale_rent" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+			<option value="<?= $userprofile->sale_rent ?>"><?= $userprofile->sale_rent ?></option>
+			<option value="sale">sale</option>
+			<option value="rent">rent</option>
+		</select>
+		<br><br>
+
+		<label>Change Your Photo</label><br>
+		<img src="../../../public/img/<?= $userprofile->photo ?>" width="140" height="150">
+		<input type="file" name="photo" id="photo" value="" >
+		</br>
+		
+		<input type="submit" name="submit" class="btn btn-default btn-enquiry col1 submit-btn clicktrack" value="Update">
+</form>
+<script type="text/javascript">
+	function isNumberKey(evt)
+      {
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+         return true;
+      }
+
+</script>
+</body>

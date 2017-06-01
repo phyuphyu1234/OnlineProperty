@@ -1,0 +1,17 @@
+<body style="background-color:#DEF0F7;">
+
+<h1>Change New Password</h1>
+
+<form class="form" action="<?= $this->url('onlineproperty', ['action' => 'changepw', 'id' =>$onlineproperty->id]) ?>" method="post">
+
+    <input type="hidden" name="id" value="<?= $onlineproperty->id  ?>">
+     <input type="hidden" name="name" value="<?= $onlineproperty->name  ?>">
+      <input type="hidden" name="auth" value="<?= $onlineproperty->auth  ?>">
+
+    <label for="password">New Password:</label><br>
+    <input type="password" name="password" value="<?= $onlineproperty->password ?>" placeholder="Password" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;"><br><br>
+
+    <input type="submit" name="submit" class="btn btn-default btn-enquiry col1 submit-btn clicktrack" value="Save">
+    
+</form>
+</body>

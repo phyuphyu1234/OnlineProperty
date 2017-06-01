@@ -1,0 +1,60 @@
+<?php 
+use Zend\Session\Container;
+
+$title = 'Property List';
+$this->headTitle($title);
+?>
+<style>
+    
+p{
+  margin-left: 980px;
+}
+</style>
+<body style="background-color:#DEF0F7;">
+<h2 style="color:#27CE53"><?= $this->escapeHtml($title); ?></h2>
+<p>
+    <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('onlineproperty', ['action' => 'index']) ?>">See User</a>
+   
+</p>
+
+<table class="table">
+    <tr>
+        <th>Photo</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Location</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Sale & Rent</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->paginator as$postmng) :
+    $price=$postmng->price; // <-- change here! ?>
+       <tr>
+             <td><img src="../public/img/<?= $postmng->photo ?>" width="140" height="150"></td>
+             <td><?= $postmng->type_name?></td>
+             <td><?php echo number_format("$price");?> </td> 
+             <td><?= $postmng->location?></td>
+             <td><?= $postmng->contact_phnumber?></td>
+             <td><?= $postmng->contact_address?></td>
+             <td><?= $postmng->sale_rent?></td>
+
+             <td>  
+                <a href="<?= $this->url('postmng', ['action' => 'edit', 'id' => $postmng->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Edit</a>
+                <a href="<?= $this->url('postmng', ['action' => 'delete', 'id' => $postmng->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Delete</a>
+     
+     </td>      
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?= $this->paginationControl(
+    // The paginator object:
+    $this->paginator,
+    // The scrolling style:
+    'sliding',
+    // The partial to use to render the control:
+    'partial/paginator',
+    // The route to link to when a user clicks a control link:
+    ['route' => 'postmng']
+) ?>
+</body>

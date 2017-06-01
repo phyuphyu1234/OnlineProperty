@@ -1,0 +1,57 @@
+<?php 
+use Zend\Session\Container; 
+
+$session = new Container('user');
+$uid = $session->id;
+$auth= $session->auth;
+$title = 'User List';
+$this->headTitle($title);
+
+?>
+<style>
+p{
+  margin-left: 850px;
+}
+</style>
+
+<body style="background-color:#DEF0F7;">
+<h2 style="color:#27CE53;"><?= $this->escapeHtml($title); ?></h2>
+
+ <p>
+    <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('postmng', ['action' => 'index']) ?>">See Post</a>
+    <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('onlineproperty', ['action' => 'changepw', 'id' => $uid]) ?>">Change Password</a></br>
+    <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('userprofile', ['action' => 'add']) ?>">Add Post</a>
+    <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('onlineproperty', ['action' => 'logout']) ?>">Logout</a></br>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Auth</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($this->paginator as $onlineproperty) : // <-- change here! ?>
+        <tr>
+             <td><?= $onlineproperty->name?></td>
+             <td><?= $onlineproperty->password?></td> 
+             <td><?= $onlineproperty->auth?></td>
+             <td>
+                <a href="<?= $this->url('onlineproperty', ['action' => 'edit', 'id' => $onlineproperty->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Edit</a>
+                <a href="<?= $this->url('onlineproperty', ['action' => 'delete', 'id' => $onlineproperty->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Delete</a>
+     
+            </td>    
+       </tr>
+    <?php endforeach; ?>
+</table>
+<?= $this->paginationControl(
+    // The paginator object:
+    $this->paginator,
+    // The scrolling style:
+    'sliding',
+    // The partial to use to render the control:
+    'partial/paginator',
+    // The route to link to when a user clicks a control link:
+    ['route' => 'onlineproperty']
+) ?>
+</body>

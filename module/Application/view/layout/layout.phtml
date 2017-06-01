@@ -1,0 +1,115 @@
+<?= $this->doctype() ?>
+<?php 
+use Zend\Session\Container; 
+
+$session = new Container('user');
+      $uid = $session->id;
+      $auth= $session->auth;
+?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('OnlineProperty')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/img9.jpg'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+        ?>
+</head>
+<style>
+    .container {
+        padding-right: 15px;
+        padding-top: 10px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 3px;
+        height: 80px;
+    }
+    .navbar-inverse {
+        background-color: red;
+        border-color: #7BBBED;
+    }
+    .collapse navbar-collapse{
+         margin-bottom: 200px;
+    }
+    .nav > li > a{
+        color: black;
+        margin-right: 500px;
+        font-size: 15px;
+    }
+    .nav > li > a:hover {
+        text-decoration: none;
+        background-color: #6789DB;
+        text-align: center;
+        color: black;
+    }
+    .foo{
+        text-align: center;
+    }
+
+</style>
+   <head>
+        <nav  role="navigation" style="padding-top: 0px;">
+
+            <div class="container" style="background-color:#6789DB; width:100%;" >
+            
+                <div class="navbar-header"  >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="<?= $this->url('home') ?>"> 
+                        <img src="<?= $this->basePath('img/onlinepropertylogooutline.jpg') ?>" height="50" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp; 
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <?php // update to: ?>
+                      <?= $this->navigation('navigation')
+                            ->menu()
+                            ->setMinDepth(0)
+                            ->setMaxDepth(0)
+                            ->setUlClass('nav navbar-nav') ?>
+               
+                 <img src="<?= $this->basePath('img/menu.gif') ?>" height="50" alt="Zend Framework <?= \Application\Module::VERSION ?>"/>&nbsp;
+                </div>
+            </div>
+
+        </nav>
+
+    </head>
+     <body>
+
+      <div class="container">
+             <?php // Update to: ?>
+             <?= $this->navigation('navigation')
+            ->breadcrumbs()
+            ->setMinDepth(0)
+            ->setPartial('partial/breadcrumb') ?>
+            <?= $this->content ?>
+            <hr>
+            <div>
+              <footer clear:both;>
+                <div style="margin-left: 372px;">&copy;  <?= date('Y') ?> by Operating Partners Myanmar Ltd. All rights reserved.</div>
+              </footer>
+            </div>
+       </div>
+       
+        <?= $this->inlineScript() ?>
+
+     </body>
+</html>

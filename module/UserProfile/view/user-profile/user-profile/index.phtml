@@ -1,0 +1,102 @@
+<?php 
+use Zend\Session\Container;
+
+$session = new Container('user');
+$id = $session->id;
+
+$title = 'User Profile';
+$this->headTitle($title);
+?>
+<style>
+ .paging-nav {
+  text-align: left;
+  padding-top: 10px;
+  
+}
+
+.paging-nav a {
+  margin: auto 1px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1px 7px;
+  background: white;
+  color: black;
+  border-radius: 3px;
+  width: 35px;
+  height: 30px;
+   padding-top: 5px;
+  text-indent: center;
+  text-align: center;
+
+}
+
+.paging-nav .selected-page {
+  background: #337AB7;
+  font-weight: bold;
+  padding-top: 5px;
+  text-indent: center;
+  text-align: center;
+}
+
+.paging-nav,
+#tableData {
+  width: 1500px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+p{
+  margin-left:920px;
+}
+
+</style>
+<body style="background-color:#DEF0F7;">
+  <h2 style="color:#27CE53"><?= $this->escapeHtml($title); ?></h2>
+  <p>
+      <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('userprofile', ['action' => 'add']) ?>">Add new online property</a><br>
+      <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('onlineproperty', ['action' => 'changepw','id' => $id]) ?>">Change Password</a><br>
+      <img src="../public/img/post3.jpg" height="30"><a href="<?= $this->url('onlineproperty', ['action' => 'logout','id' => $id]) ?>">Logout</a>
+  </p>
+<div>
+<table id="tableData" class="table table-bordered table-striped">
+  <tr>
+      <th>Photo</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Location</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Sale&Rent</th>
+      <th>&nbsp;</th>
+</tr>
+   <?php 
+        $session = new Container('user');
+        $id = $session->id;
+   ?>
+      <?php foreach ($this->paginator as $userprofile) :
+               $price=$userprofile->price; ?>
+              <tr style="height:100px;">
+                <td><img src="../public/img/<?= $userprofile->photo ?>" width="150" height="150" /></td>
+                <td><?= $this->escapeHtml($userprofile->type_name) ?></td>
+                <td><?php echo number_format("$price");?> </td>
+                <td><?= $this->escapeHtml($userprofile->location) ?></td>
+                <td><?= $this->escapeHtml($userprofile->contact_phnumber) ?></td>
+                <td><?= $this->escapeHtml($userprofile->contact_address) ?></td>
+                <td><?= $this->escapeHtml($userprofile->sale_rent)?></td>
+                <td>
+                    <a href="<?= $this->url('userprofile', ['action' => 'edit', 'id' => $userprofile->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Edit</a>
+                    <a href="<?= $this->url('userprofile', ['action' => 'delete', 'id' => $userprofile->id]) ?>" class="btn btn-default btn-enquiry col1 submit-btn clicktrack">Delete</a>
+                </td>
+              </tr>
+      <?php  endforeach; ?>
+    </table>
+  </div>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../public/js/paging.js"></script> 
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('#tableData').paging({limit:5});
+            });
+        </script>
+        <script type="text/javascript">

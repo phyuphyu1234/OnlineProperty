@@ -1,0 +1,239 @@
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<head style="padding:3px; margin:0px; background-color:#fff;font-family:'Open Sans',sans-serif,arial,helvetica,verdana">
+
+    <script src="js/jssor.slider-22.0.7.min.js" type="text/javascript" data-library="jssor.slider" data-version="22.0.7"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_SlideoTransitions = [
+              [{b:-1,d:1,o:-1},{b:0,d:1000,x:-257,y:-5,o:1}],
+              [{b:480,d:520,x:120,y:-270}],
+              [{b:1000,d:500,y:250},{b:8000,d:1000,x:600}],
+              [{b:-1,d:1,o:-1,sX:-0.6,sY:-0.6},{b:1500,d:500,o:1,r:360,sX:0.6,sY:0.6},{b:8000,d:1000,y:-150}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:2000,d:1000,o:1,tZ:200},{b:3000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:3000,d:1000,o:1,tZ:200},{b:4000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:4000,d:1000,o:1,tZ:200},{b:5000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:5000,d:1000,o:1,tZ:200},{b:6000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:6000,d:1000,o:1,tZ:200},{b:7000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,o:-1,tZ:-200},{b:7000,d:1000,o:1,tZ:200},{b:8000,d:1000,o:-1,tZ:200}],
+              [{b:-1,d:1,c:{x:250.0,t:-250.0}},{b:0,d:1000,c:{x:-250.0,t:250.0}},{b:5000,d:1000,y:100}],
+              [{b:-1,d:1,o:-1},{b:1000,d:1000,o:1},{b:5000,d:1000,y:280}],
+              [{b:2000,d:1000,y:190,e:{y:28}},{b:5000,d:1000,x:280}],
+              [{b:3000,d:520,y:50},{b:5000,d:1000,y:-50}],
+              [{b:3520,d:480,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+              [{b:4000,d:500,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+              [{b:4500,d:500,x:-400},{b:5000,d:800,x:400,e:{x:7}}],
+              [{b:-1,d:1,c:{x:250.0,t:-250.0}},{b:0,d:1000,c:{x:-250.0,t:250.0}},{b:10000,d:500,y:90}],
+              [{b:-1,d:1,c:{x:150.0,t:-150.0}},{b:1000,d:1000,c:{x:-150.0,t:150.0}},{b:10000,d:500,c:{y:150.0,m:-150.0}}],
+              [{b:2000,d:500,x:220}],
+              [{b:3500,d:500,rX:-20},{b:4000,d:1000,rX:40},{b:5000,d:500,rX:-10},{b:9500,d:500,o:-1}],
+              [{b:3500,d:2000,r:360}],
+              [{b:-1,d:1,o:-1},{b:2500,d:500,x:76,y:-25,o:1}],
+              [{b:-1,d:1,o:-1},{b:2500,d:500,x:47,y:65,o:1}],
+              [{b:-1,d:1,o:-1},{b:2500,d:500,x:-47,y:65,o:1}],
+              [{b:-1,d:1,o:-1},{b:2500,d:500,x:-76,y:-25,o:1}],
+              [{b:-1,d:1,o:-1},{b:2500,d:500,y:-80,o:1}],
+              [{b:-1,d:1,c:{x:120.0,t:-120.0}},{b:6100,d:400,c:{x:-120.0,t:120.0}},{b:10000,d:500,y:-120}],
+              [{b:6500,d:500,x:220}],
+              [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:7000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:8000,d:500,o:-1,r:180,sX:9,sY:9}],
+              [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:8000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:9000,d:500,o:-1,r:180,sX:9,sY:9}],
+              [{b:-1,d:1,o:-1,r:180,sX:-0.5,sY:-0.5},{b:9000,d:500,o:1,r:180,sX:0.5,sY:0.5},{b:9500,d:500,o:-1,r:180,sX:9,sY:9}]
+            ];
+
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $SlideEasing: $Jease$.$InOutSine,
+              $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlideo$,
+                $Transitions: jssor_1_SlideoTransitions,
+                $Breaks: [
+                  [{d:3000,b:8000,t:2}],
+                  [{d:2000,b:5000}],
+                  [{d:3000,b:9500,t:2}]
+                ]
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 980);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            
+        };
+    </script>
+    <style>
+        .mySlides {
+          display:none;
+        }
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 16px;
+            height: 16px;
+            background: url('img/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { background-position: -7px -7px; }
+        .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+        .jssorb05 .av { background-position: -67px -7px; }
+        .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+       
+        .jssora22l, .jssora22r {
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 58px;
+            cursor: pointer;
+            background: url('img/a22.png') center center no-repeat;
+            overflow: hidden;
+        }
+        .jssora22l { background-position: -10px -31px; }
+        .jssora22r { background-position: -70px -31px; }
+        .jssora22l:hover { background-position: -130px -31px; }
+        .jssora22r:hover { background-position: -190px -31px; }
+        .jssora22l.jssora22ldn { background-position: -250px -31px; }
+        .jssora22r.jssora22rdn { background-position: -310px -31px; }
+        .jssora22l.jssora22lds { background-position: -10px -31px; opacity: .3; pointer-events: none; }
+        .jssora22r.jssora22rds { background-position: -70px -31px; opacity: .3; pointer-events: none; }
+    </style>
+    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden; visibility: hidden;">
+        
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 980px; height: 380px; overflow: hidden;">
+            <div data-b="0" data-p="170.00" data-po="80% 55%">
+                <img data-u="image" src="img/01.jpg" />
+                <div data-u="caption" data-t="0" style="position:absolute;top:25px;left:277px;width:500px;height:30px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:20px;color:#ffffff;line-height:30px;text-align:center;">Welcome To Our Online Property ! !</div>
+                <div data-u="caption" data-t="1" style="position:absolute;top:600px;left:-100px;width:330px;height:30px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:20px;color:#ffffff;line-height:30px;text-align:center;">Operating Partners Myanmar...</div>
+                
+                <div data-u="caption" data-t="4" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Condo</div>
+                <div data-u="caption" data-t="5" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Apartment</div>
+                <div data-u="caption" data-t="6" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">House</div>
+                <div data-u="caption" data-t="7" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Land</div>
+                <div data-u="caption" data-t="8" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Factory</div>
+
+                <div data-u="caption" data-t="9" data-3d="1" style="position:absolute;top:200px;left:550px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Office</div>
+            </div>
+            <div data-b="1" data-p="170.00" style="display:none;">
+                <img data-u="image" src="img/02.jpg" />
+                
+                <div data-u="caption" data-t="12" style="position:absolute;top:-100px;left:720px;width:160px;height:90px;z-index:0;background-color:rgba(235,81,0,0.7);font-size:20px;color:#ffffff;line-height:90px;text-align:center;">Location</div>
+                <div style="position:absolute;top:40px;left:300px;width:400px;height:200px;z-index:0; overflow:hidden;">
+                   
+                    <div data-u="caption" data-t="14" style="position:absolute;top:50px;left:400px;width:450px;height:30px;z-index:0;font-size:18px;color:#ffffff;line-height:30px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Yangon </div>
+                    <div data-u="caption" data-t="15" style="position:absolute;top:100px;left:400px;width:450px;height:30px;z-index:0;font-size:18px;color:#ffffff;line-height:30px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Mandalay</div>
+                </div>
+            </div>
+            <a data-u="any" href="http://www.jssor.com" style="display:none">Introduction Slider</a>
+            <div data-b="2" data-p="170.00" style="display:none;">
+                <img data-u="image" src="img/04.jpg" />
+                <div data-u="caption" data-t="17" style="position:absolute;top:310px;left:50px;width:500px;height:30px;z-index:0;background-color:rgba(235,81,0,0.5);font-size:20px;color:#ffffff;line-height:30px;text-align:center;">Operating Partners Myanmar ! !</div>
+        
+                <div data-u="caption" data-t="20" data-3d="1" style="position:absolute;top:140px;left:690px;width:200px;height:200px;z-index:0;">
+                    <div data-u="caption" data-t="21" style="position:absolute;top:0px;left:0px;width:200px;height:200px;z-index:0;">
+                        <img data-u="caption" data-t="22" style="position:absolute;top:85px;left:85px;width:30px;height:30px;z-index:0;" src="img/icon_opera.png" />
+                        <img data-u="caption" data-t="23" style="position:absolute;top:85px;left:85px;width:30px;height:30px;z-index:0;" src="img/icon_safari.png" />
+                        <img data-u="caption" data-t="24" style="position:absolute;top:85px;left:85px;width:30px;height:30px;z-index:0;" src="img/icon_ie.png" />
+                        <img data-u="caption" data-t="25" style="position:absolute;top:85px;left:85px;width:30px;height:30px;z-index:0;" src="img/icon_firefox.png" />
+                        <img data-u="caption" data-t="26" style="position:absolute;top:85px;left:85px;width:30px;height:30px;z-index:0;" src="img/icon_chrome.png" />
+                    </div>
+                </div>
+                <div data-u="caption" data-t="27" style="position:absolute;top:20px;left:20px;width:240px;height:80px;z-index:0;background-color:rgba(0,0,124,0.3); overflow:hidden;">
+                    <div style="position:absolute;top:0px;left:20px;width:200px;height:50px;z-index:0;font-size:24px;color:#ffffff;line-height:50px;">Location</div>
+                </div>
+
+                <div data-u="caption" data-t="29" style="position:absolute;top:150px;left:250px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.7);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Yangon</div>
+              
+                <div data-u="caption" data-t="31" style="position:absolute;top:150px;left:250px;width:200px;height:100px;z-index:0;background-color:rgba(235,81,0,0.7);font-size:24px;color:#ffffff;line-height:100px;text-align:center;">Mandalay</div>
+
+            </div>
+        </div>
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+            <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:10px;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:10px;width:40px;height:58px;" data-autocenter="2"></span>
+
+    </div>
+
+    <script type="text/javascript">jssor_1_slider_init();</script>
+    <!-- #endregion Jssor Slider End -->
+    </head>  
+<body style="background-color:#B6DEED;">
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+<div class="panel panel-default" style="margin-top:20px;width:50%;float:left;">
+    <h3 style="text-align:center;color:#6789DB; ">Online Property</h3>    
+       <div class="panel-body"> 
+            <p>
+            We are Online Property Services. Established in 2016, we have no experience and expertise to ensure you get outstanding service. Whether you are looking for tenancy or wanting to rent out your property, we can help.
+            </p>
+            <p>
+            As a member of the Association of Residential Letting Agents, we here to a strict code of practice. We pride ourselves in providing friendly and efficient service, but we are always seeking ways to improve and have invested heavily in modern technology and training programs to that end.
+            </p>
+            <p>
+            Our trading areas are Yangon, Mandalay, Taungyi, Pyin Oo Lwin, Naypyitaw, Bagan,Meikhtila, Kaychin State, Chin State and  Kayin State. 
+            </p>
+       </div>
+</div>
+<div class="panel panel-default" style="margin-top:20px;width:50%;float:left;height:355px;"> 
+  <h3 style="text-align:center;color:#6789DB; ">Receive An Offer Today!</h3>      
+       <div class="panel-body"> 
+            <p>
+            Receive An Offer Today!
+            Please tell us a bit about your property so that we can make a reasonable offer, or feel free to call us directly at 09-771051027(Operating Partners Myanmar).
+            </p>
+            <br> 
+            <br> 
+            <br> 
+            <p>
+            <b>*</b>Do you want the highest quality house in Myanmar.<br>
+            <b>*</b>Do you want warmly,lovely and happly family.<br> 
+            <b>*</b>I can serve your wish.<br>
+            <b>*</b>Please call me 09-771051027(Operating Partners Myanmar)
+            </p>
+        </div>
+</div>
+</body>
+

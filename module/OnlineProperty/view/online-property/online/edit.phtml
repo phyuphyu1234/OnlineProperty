@@ -1,0 +1,27 @@
+<body style="background-color:#DEF0F7;">
+
+<h1>Edit User</h1>
+
+<form class="form" action="<?= $this->url('onlineproperty', ['action' => 'edit', 'id' => $onlineproperty->id ]) ?>" method="post">
+
+    <input type="hidden" name="id" value="<?= $onlineproperty->id ?>">
+
+    <label>User Name</label><br>
+    <input type="text" name="name" value="<?= $onlineproperty->name ?>" placeholder="Name" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;"><br>
+
+    <label>Password</label><br>
+    <input type="text" name="password" value="<?= $onlineproperty->password ?>" placeholder="Password" required style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;"><br>
+ 
+    <label for="text" id="auth">Status</label><br>
+	<select id="auth" class="auth" name="auth" style="color: #bd726c; width: 200px; border-radius: 5px; height: 31px;  box-shadow: none; border: 1px solid #b6b5b5;">
+	<option value="<?= $onlineproperty->auth ?>" ><?= $onlineproperty->auth?></option>
+	<option value="1">Admin</option>
+	<option value="2">Normal User</option>
+	</select>
+	<br>
+	<br>
+
+    <input type="submit" name="submit" class="btn btn-default btn-enquiry col1 submit-btn clicktrack" value="Update">
+    
+</form>
+</body>

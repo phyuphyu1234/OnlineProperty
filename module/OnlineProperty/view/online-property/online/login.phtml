@@ -1,0 +1,80 @@
+<html>
+<style>
+.forgot-link {
+    color: #737373;
+    float: right;
+}
+.register-link-block {
+    text-align: center;
+    border-top: 1px solid #d2d2d2;
+    padding: 1.5em 2em 0 2em;
+}
+.register-login-form .btn {
+    text-transform: none;
+    padding: 0.7em;
+
+}
+.register-btn {
+    border-radius: 0;
+    background: #7cb469;
+    border: 1px solid #579143;
+    color: #ffffff;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.user-login {
+    float: none;
+}
+.register-login-form {
+    margin: 0 auto;
+    background: #fcfcfc;
+    border: 1px solid #b6b5b5;
+    margin-top: 3em;
+    padding: 2em 0.5em;
+}
+.register-login-form h2 {
+    text-transform: uppercase;
+    font-family: "OpenSans-Bold","Zawgyi-One","Arial",sans-serif;
+    margin-bottom: 1.5em;
+    margin-top: 0;
+    font-size: 22px;
+    text-align: center;
+}
+p{
+  margin-left:920px;
+}
+h3 {
+  margin-right:900px;
+  float: right;
+}
+</style>
+<body style="background-color:#DEF0F7;">
+
+<div class="tab-box">
+  <div class="register-login-form user-login col-xs-12 col-md-5"> 
+   <h2>Profile Login</h2>
+   <form class="form"  action="<?= $this->url('onlineproperty',['action' => 'login' ]) ?>" method="post" >
+      <?php if($this->error):?>
+        <div class="alert alert-danger"> 
+          <?php echo $this->error ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="form-group">
+            <label for="text">Name</label>
+          	<input type="text" name="username" value="" placeholder="username"class="form-control" required> <br>	
+        </div>
+        
+        <div class="form-group">
+          	<label for="text">Password</label>
+          	<input type="password" name="password" value="" placeholder="password" class="form-control" required><br>		
+          	<input type="submit" name="submit" value="login" class="btn submit-btn btn-block" >
+        </div>
+  </div>
+</div>
+</form>
+</body>
+</html>
+
